@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/navigation_presentation">
+
+    <fragment
+        android:id="@+id/navigation_presentation"
+        android:name="com.dog.dogsapp.fragments.PresentationFragment"
+        android:label="@string/title_presentation"
+        tools:layout="@layout/fragment_presentation" >
+        <action
+            android:id="@+id/action_navigation_presentation_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.dog.dogsapp.fragments.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_images"
+            app:destination="@id/navigation_images"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_images"
+        android:name="com.dog.dogsapp.fragments.ImagesFragment"
+        android:label="@string/title_images"
+        tools:layout="@layout/fragment_images">
+        <argument
+            android:name="item"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_images_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+</navigation>
